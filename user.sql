@@ -1,0 +1,20 @@
+CREATE TABLE User (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    name VARCHAR(100) NOT NULL,
+    email VARCHAR(100) UNIQUE NOT NULL
+);
+
+-- INSERT INTO User VALUES
+-- (1, 'KIPTOO CALEB', 702171495, 'admin', 'caleb@demo.com', 587785),
+-- (2, 'KIPROB ABEL', 719507355, 'admin', 'abel@demo.com', 593223);
+
+
+CREATE TABLE Post (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    user_id INTEGER NOT NULL,
+    TITLE VARCHAR(20) NOT NULL,
+    content VARCHAR(1000) NOT NULL,
+    FOREIGN KEY (user_id) REFERENCES user (id) ON DELETE CASCADE
+);
+
+PRAGMA foreign_keys = ON;
